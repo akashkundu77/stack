@@ -1,0 +1,31 @@
+#define MAX_SIZE 100 // Maximum stack size
+
+struct Stack {
+    int items[MAX_SIZE];
+    int top;
+};
+
+// Initialize an empty stack
+void init(struct Stack* stack) {
+    stack->top = -1;
+}
+
+// Push an element onto the stack
+void push(struct Stack* stack, int item) {
+    if (stack->top == MAX_SIZE - 1) {
+        printf("Stack overflow!\n");
+        return;
+    }
+    stack->items[++stack->top] = item;
+}
+
+// Pop an element from the stack
+int pop(struct Stack* stack) {
+    if (stack->top == -1) {
+        printf("Stack underflow!\n");
+        return -1;
+    }
+    return stack->items[stack->top--];
+}
+
+
